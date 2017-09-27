@@ -1,4 +1,4 @@
-
+PFont myFont;
 void setup()
 {
   noLoop();
@@ -21,7 +21,11 @@ void draw()
     }
   }
   fill(240,230,210);
-  text("Score: " + sum , 150,370);
+  
+  //set font yaaaaaaas
+  myFont = loadFont("BerlinSansFBDemi-Bold-48.vlw");
+  textFont(myFont);
+  text("Score: " + sum , 100,380);
 }
   
 void mousePressed()
@@ -36,6 +40,8 @@ class Die //models one single dice cube
   {
     myX = x;
     myY = y;
+    roll();
+   
   }
   
   void roll()
@@ -45,53 +51,53 @@ class Die //models one single dice cube
 
   void show()
   {
-    fill(255);
+    
     //front
-    rect(myX,myY,40,40,3);
+   fill(230,230,230);
+   rect(myX,myY,40,40,3);
     //right side
-    quad(myX, myY, myX-10, myY-2, myX-10, myY+35, myX, myY+39);
+    fill(202,203,209);
+    quad(myX, myY, myX-10, myY-3, myX-10, myY+36, myX, myY+40);
     //top
-    quad(myX, myY, myX-15, myY-3, myX+30, myY-3, myX+42, myY);
+    fill(210,210,210);
+    quad(myX, myY+1, myX-15, myY-2, myX+30, myY-2, myX+42, myY+1);
     
-    //fill((int)(Math.random()*200)+100, (int)(Math.random()*200)+100,(int)(Math.random()*200)+100);
+    fill((int)(Math.random()*200)+100, (int)(Math.random()*200)+100,(int)(Math.random()*200)+100);
     
-    fill(200,0,0);
     
     if (num == 1) {
-      ellipse (myX+10,myX+20,5,5);
+      ellipse (myX+20,myY+20,5,5);
     }
-    else if (num == 2) {
-      ellipse (myX+10,myX+20,5,5);
-      ellipse (myX+10,myX+28,5,5);
+    if (num == 2) {
+      ellipse (myX+20,myY+15,5,5);
+      ellipse (myX+20,myY+28,5,5);
     }
-    else if (num == 3) {
-      ellipse (myX+,myX,5,5);
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
+    if (num == 3) {
+      ellipse (myX+10,myY+10,5,5);
+      ellipse (myX+20,myY+20,5,5);
+      ellipse (myX+30,myY+30,5,5);
     }
-    else if (num == 4) {
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
+    if (num == 4) {
+      ellipse (myX+10,myY+10,5,5);
+      ellipse (myX+30,myY+10,5,5);
+      ellipse (myX+10,myY+30,5,5);
+      ellipse (myX+30,myY+30,5,5);
     }
-    else if (num == 5) {
-      ellipse (myX+5,myX,5,5);
-      ellipse (myX+15,myX,5,5);
-      ellipse (myX+20,myX,5,5);
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
+     if (num == 5) {
+     ellipse (myX+10,myY+10,5,5);
+      ellipse (myX+30,myY+10,5,5);
+      ellipse (myX+10,myY+30,5,5);
+      ellipse (myX+30,myY+30,5,5);
+      ellipse(myX+20,myY+20,5,5);
     }
-    else if (num == 6) {
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
-      ellipse (myX,myX,5,5);
-    }
-    
- 
+     if (num == 6) {
+      ellipse (myX+10,myY+10,5,5);
+      ellipse (myX+10,myY+20,5,5);
+      ellipse (myX+10,myY+30,5,5);
+      ellipse (myX+30,myY+10,5,5);
+      ellipse (myX+30,myY+20,5,5);
+      ellipse (myX+30,myY+30,5,5);
+     }
     
   }
 }
